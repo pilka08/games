@@ -1,0 +1,136 @@
+local Config = {
+    WindowName = "Omega-Ware V0.1",
+	Color = Color3.fromRGB(46,178,76),
+	Keybind = Enum.KeyCode.RightBracket
+	}
+
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/AlexR32/Roblox/main/BracketV3.lua"))()
+local Window = Library:CreateWindow(Config, game:GetService("CoreGui"))
+
+local Tab2 = Window:CreateTab("BIG Paintball")
+
+local Section3 = Tab2:CreateSection("Gun Mods")
+local Section4 = Tab2:CreateSection("Others")
+
+
+-------------//BIG PAINTBALL\\-------------
+local Button1 = Section3:CreateButton("No Recoil", function()
+local checks={ "Ammo", "ammo", "Damage", "damage", "Firerate", "firerate", "FireRate", "fireRate", "Recoil", "recoil", "Spread", "spread", "ability", "Ability" }
+for i,v in pairs(getgc(true))do
+  for x=1,#checks do
+      if type(v)=="table" and rawget(v,checks[x]) then
+          v.velocity=1000000
+      end
+  end
+end
+end)
+-------------
+local Button1 = Section3:CreateButton("Rapid Fire", function()
+local checks={ "Ammo", "ammo", "Damage", "damage", "Firerate", "firerate", "FireRate", "fireRate", "Recoil", "recoil", "Spread", "spread", "ability", "Ability" }
+for i,v in pairs(getgc(true))do
+  for x=1,#checks do
+      if type(v)=="table" and rawget(v,checks[x]) then
+          v.firerate=0
+          v.burstDelay=0
+      end
+  end
+end
+end)
+-------------
+local Button1 = Section3:CreateButton("Speed", function()
+local checks={ "Ammo", "ammo", "Damage", "damage", "Firerate", "firerate", "FireRate", "fireRate", "Recoil", "recoil", "Spread", "spread", "ability", "Ability" }
+for i,v in pairs(getgc(true))do
+  for x=1,#checks do
+      if type(v)=="table" and rawget(v,checks[x]) then
+          v.additionalSpeed=11.5
+      end
+  end
+end
+end)
+-------------
+local Button1 = Section3:CreateButton("Automatic", function()
+local checks={ "Ammo", "ammo", "Damage", "damage", "Firerate", "firerate", "FireRate", "fireRate", "Recoil", "recoil", "Spread", "spread", "ability", "Ability" }
+for i,v in pairs(getgc(true))do
+  for x=1,#checks do
+      if type(v)=="table" and rawget(v,checks[x]) then
+          v.automatic=true
+      end
+  end
+end
+end)
+-------------
+local Button1 = Section3:CreateButton("Zoom", function()
+local checks={ "Ammo", "ammo", "Damage", "damage", "Firerate", "firerate", "FireRate", "fireRate", "Recoil", "recoil", "Spread", "spread", "ability", "Ability" }
+for i,v in pairs(getgc(true))do
+  for x=1,#checks do
+      if type(v)=="table" and rawget(v,checks[x]) then
+          v.zoomAmount=5
+      end
+  end
+end
+end)
+-------------
+local Button1 = Section3:CreateButton("Inf Ammo", function()
+local checks={ "Ammo", "ammo", "Damage", "damage", "Firerate", "firerate", "FireRate", "fireRate", "Recoil", "recoil", "Spread", "spread", "ability", "Ability" }
+for i,v in pairs(getgc(true))do
+  for x=1,#checks do
+      if type(v)=="table" and rawget(v,checks[x]) then
+          v.LoadedAmmo=math.huge
+      end
+  end
+end
+end)
+-------------
+Section4:CreateLabel("ESP Stuff")
+-------------
+local Button1 = Section4:CreateButton("Turret", function()
+for i,v in pairs(game.Workspace.__THINGS.Sentries:GetChildren())do
+  local gadgetESP=game.ReplicatedStorage.Assets.GadgetIndicator:Clone()
+  gadgetESP.Parent=v["Turret Bottom"]
+  gadgetESP.Frame.BackgroundColor3=Color3.fromRGB(255,30,30)
+end
+game.Workspace.__THINGS.Sentries.ChildAdded:Connect(function(c)
+  if tostring(c)==tostring(game.Players.LocalPlayer) then return end
+  repeat wait()until c:FindFirstChild("Turret Bottom")
+  local gadgetESP=game.ReplicatedStorage.Assets.GadgetIndicator:Clone()
+  gadgetESP.Parent=c["Turret Bottom"]
+  gadgetESP.Frame.BackgroundColor3=Color3.fromRGB(255,30,30)
+end)
+end)
+-------------
+local Button1 = Section4:CreateButton("Radar/People", function()
+function newRadarESP(c)
+  local radarESP = game.ReplicatedStorage.Assets.RadarPing:Clone()
+  radarESP.Parent = c.Head
+end
+for i,v in pairs(game.Players:GetPlayers())do
+  if v~=game.Players.LocalPlayer then
+      newRadarESP(v.Character)
+      v.CharacterAdded:Connect(function(c)
+          repeat wait()until c:FindFirstChild("Head")
+          newRadarESP(c)
+      end)
+  end
+end
+game.Players.PlayerAdded:Connect(function(p)
+  p.CharacterAdded:Connect(function(c)
+      repeat wait()until c:FindFirstChild("Head")
+      newRadarESP(c)
+  end)
+end)
+end)
+-------------
+local Button1 = Section4:CreateButton("Drone", function()
+for i,v in pairs(game.Workspace.__THINGS.Sentries:GetChildren())do
+  local gadgetESP=game.ReplicatedStorage.Assets.GadgetIndicator:Clone()
+  gadgetESP.Parent=v["Turret Bottom"]
+  gadgetESP.Frame.BackgroundColor3=Color3.fromRGB(255,30,30)
+end
+game.Workspace.__THINGS.Sentries.ChildAdded:Connect(function(c)
+  if tostring(c)==tostring(game.Players.LocalPlayer) then return end
+  repeat wait()until c:FindFirstChild("Turret Bottom")
+  local gadgetESP=game.ReplicatedStorage.Assets.GadgetIndicator:Clone()
+  gadgetESP.Parent=c["Turret Bottom"]
+  gadgetESP.Frame.BackgroundColor3=Color3.fromRGB(255,30,30)
+end)
+end)

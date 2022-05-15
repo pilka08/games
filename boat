@@ -1,0 +1,255 @@
+local Config = {
+    WindowName = "Omega-Ware V0.1",
+	Color = Color3.fromRGB(46,178,76),
+	Keybind = Enum.KeyCode.RightBracket
+	}
+
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/AlexR32/Roblox/main/BracketV3.lua"))()
+local Window = Library:CreateWindow(Config, game:GetService("CoreGui"))
+
+local Tab1 = Window:CreateTab("Build A Boat")
+
+local Section1 = Tab1:CreateSection("Character")
+local Section2 = Tab1:CreateSection("Autofarm")
+
+
+
+-------------//BABFT\\-------------
+Section1:CreateLabel("Character Changing")
+-------------
+local Button1 = Section1:CreateButton("Fox Character", function()
+    CC = game:GetService("Workspace").ChangeCharacter
+    CC:FireServer("FoxCharacter")
+end)
+Button1:AddToolTip("Changes u into fox.")
+
+local Button1 = Section1:CreateButton("Chicken Character", function()
+    CC = game:GetService("Workspace").ChangeCharacter
+    CC:FireServer("ChickenCharacter")
+end)
+Button1:AddToolTip("Changes u into chicken.")
+
+local Button1 = Section1:CreateButton("Penguin Character", function()
+    CC = game:GetService("Workspace").ChangeCharacter
+    CC:FireServer("PenguinCharacter")
+end)
+Button1:AddToolTip("Changes u into penguin.")
+-------------
+Section1:CreateLabel("Character Modifiers")
+-------------
+local Slider1 = Section1:CreateSlider("Walkspeed", 16,500,16,true, function(Value)
+   game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = Value
+end)
+Slider1:AddToolTip("Changes ur walkspeed.")
+
+local Slider1 = Section1:CreateSlider("JumpPower", 50,1000,50,true, function(Value)
+   game.Players.LocalPlayer.Character.Humanoid.JumpPower = Value
+end)
+Slider1:AddToolTip("Changes ur jumppower.")
+-------------
+Section1:CreateLabel("Others")
+-------------
+local Button1 = Section1:CreateButton("Reedem All Codes", function()
+    RedeemCode = game:GetService("Workspace").CheckCodeFunction
+    RedeemCode:InvokeServer("=D")
+    RedeemCode:InvokeServer("=p")
+    RedeemCode:InvokeServer("hi")
+    RedeemCode:InvokeServer("squid army")
+    RedeemCode:InvokeServer("chillthrill709 was here")
+    RedeemCode:InvokeServer("TTTRRREEEAAASSSUUURRREEE")
+end)
+Button1:AddToolTip("Reedems every code in game.")
+-------------
+local Button1 = Section1:CreateButton("No Damage From Water", function()
+    LocalPlayerName = game:GetService("Players").LocalPlayer.Name
+    LocalPlayerWorkspace = game:GetService("Workspace")[LocalPlayerName]
+    LocalPlayerWorkspace.WaterDetector:Destroy()
+end)
+Button1:AddToolTip("Makes u a Jesus but u cant die from water.")
+-------------
+local Button1 = Section1:CreateButton("Anti-Afk", function()
+local vu = game:GetService("VirtualUser")
+game:GetService("Players").LocalPlayer.Idled:connect(function()
+   vu:Button2Down(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
+   wait(1)
+   vu:Button2Up(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
+end)
+end)
+Button1:AddToolTip("Turns on anti-afk.")
+-------------
+Section2:CreateLabel("Autofarm")
+-------------
+local Button1 = Section2:CreateButton("Autofarm UI", function()
+local Player = game:GetService('Players').LocalPlayer
+Player.Idled:connect(function()
+	game:GetService('VirtualUser'):Button2Down(Vector2.new(0, 0), workspace.CurrentCamera.CFrame)
+	wait(1)
+	game:GetService('VirtualUser'):Button2Up(Vector2.new(0, 0), workspace.CurrentCamera.CFrame)
+end)
+
+local CoreGui = game:GetService('CoreGui')
+if CoreGui:FindFirstChild('BuildABoatForTreasure') ~= nil then
+	CoreGui:FindFirstChild('BuildABoatForTreasure'):Destroy()
+end
+local BuildABoatForTreasure = Instance.new('ScreenGui', game:GetService('CoreGui'))
+BuildABoatForTreasure.Name = 'BuildABoatForTreasure'
+BuildABoatForTreasure.ResetOnSpawn = false
+
+local Header = Instance.new('Frame', BuildABoatForTreasure)
+Header.Name = 'Header'
+Header.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
+Header.BorderColor3 = Color3.fromRGB(255, 255, 255)
+Header.BorderSizePixel = 0
+Header.Position = UDim2.new(0, -295, 0, 10)
+Header.Size = UDim2.new(0, 250, 0, 40)
+
+local Frame = Instance.new('Frame', Header)
+Frame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Frame.BorderColor3 = Color3.fromRGB(255, 255, 255)
+Frame.BorderSizePixel = 0
+Frame.Position = UDim2.new(0, 0, 0, 40)
+Frame.Size = UDim2.new(0, 250, 0, 5)
+Frame.Name = 'Header/Background'
+
+local Hide = Instance.new('TextButton', Header)
+Hide.Name = 'Hide'
+Hide.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
+Hide.BorderColor3 = Color3.fromRGB(255, 255, 255)
+Hide.BorderSizePixel = 0
+Hide.Position = UDim2.new(0, 252, 0, 37)
+Hide.Size = UDim2.new(0, 35, 0, 35)
+Hide.Font = Enum.Font.Highway
+Hide.Text = '<'
+Hide.TextColor3 = Color3.fromRGB(255, 255, 255)
+Hide.TextSize = 28
+
+local HideToggle = false
+Hide.MouseButton1Click:connect(function()
+	if HideToggle == false then
+		CoreGui.BuildABoatForTreasure.Header:TweenPosition(UDim2.new(0, -250, 0, 10), 'In', 'Back', 0.5)
+		wait(0.5)
+		CoreGui.BuildABoatForTreasure.Header.Hide.Text = '>'
+		CoreGui.BuildABoatForTreasure.Header.Close.BackgroundTransparency = 1
+		CoreGui.BuildABoatForTreasure.Header.Hide.BackgroundTransparency = 1
+		HideToggle = true
+	else
+		if HideToggle == true then
+			CoreGui.BuildABoatForTreasure.Header:TweenPosition(UDim2.new(0, 5, 0, 10), 'In', 'Back', 0.5)
+			wait(0.5)
+			CoreGui.BuildABoatForTreasure.Header.Hide.Text = '<'
+			CoreGui.BuildABoatForTreasure.Header.Close.BackgroundTransparency = 0
+			CoreGui.BuildABoatForTreasure.Header.Hide.BackgroundTransparency = 0
+			HideToggle = false
+		end
+	end
+end)
+
+local TextLabel = Instance.new('TextLabel', Header)
+TextLabel.Name = 'TextLabel'
+TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel.BackgroundTransparency = 1
+TextLabel.BorderSizePixel = 0
+TextLabel.Position = UDim2.new(0, 0, 0, 0)
+TextLabel.Size = UDim2.new(0, 250, 0, 40)
+TextLabel.BorderColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel.Font = Enum.Font.Highway
+TextLabel.Text = 'Build A Boat For Treasure'
+TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel.TextSize = 24
+
+local Notification = Instance.new('Frame', Header)
+Notification.Name = 'Notification'
+Notification.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
+Notification.BorderColor3 = Color3.fromRGB(255, 255, 255)
+Notification.BorderSizePixel = 0
+Notification.Position = UDim2.new(0, 0, 0, 45)
+Notification.Size = UDim2.new(0, 250, 0, 70)
+
+local Background = Instance.new('Frame', Header)
+Background.Name = 'Background'
+Background.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
+Background.BorderColor3 = Color3.fromRGB(255, 255, 255)
+Background.BorderSizePixel = 0
+Background.Position = UDim2.new(0, 0, 0, 45)
+Background.Size = UDim2.new(0, 250, 0, 35)
+
+local AutoWin = Instance.new('TextButton', Background)
+AutoWin.Name = 'AutoWin'
+AutoWin.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
+AutoWin.BorderColor3 = Color3.fromRGB(255, 255, 255)
+AutoWin.BorderSizePixel = 0
+AutoWin.Position = UDim2.new(0, 0, 0, 0)
+AutoWin.Size = UDim2.new(0, 250, 0, 35)
+AutoWin.Font = Enum.Font.Highway
+AutoWin.Text = 'Auto-Farm:❎'
+AutoWin.TextColor3 = Color3.fromRGB(255, 255, 255)
+AutoWin.TextSize = 16
+
+local AutoWinToggle = false
+AutoWin.MouseButton1Click:connect(function()
+	if AutoWinToggle == false then
+		AutoWinToggle = true
+		AutoWin.Text = 'Auto-Farm:✅'
+		Win()
+	else
+		if AutoWinToggle == true then
+			AutoWinToggle = false
+			AutoWin.Text = 'Auto-Farm:❎'
+		end
+	end
+end)
+
+local Close = Instance.new('TextButton', Header)
+Close.Name = 'Close'
+Close.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
+Close.BorderColor3 = Color3.fromRGB(255, 255, 255)
+Close.BorderSizePixel = 0
+Close.Position = UDim2.new(0, 252, 0, 0)
+Close.Size = UDim2.new(0, 35, 0, 35)
+Close.Font = Enum.Font.Highway
+Close.Text = 'X'
+Close.TextColor3 = Color3.fromRGB(255, 255, 255)
+Close.TextSize = 28
+
+Close.MouseButton1Click:connect(function()
+	AutoWinToggle = false
+	CoreGui.BuildABoatForTreasure.Header:TweenPosition(UDim2.new(0, -295, 0, 10), 'In', 'Back', 0.5)
+	wait(0.5)
+	CoreGui.BuildABoatForTreasure:Destroy()
+end)
+
+CoreGui.BuildABoatForTreasure.Header:TweenPosition(UDim2.new(0, 5, 0, 10), 'In', 'Back', 0.5)
+
+function Tween(Time, Position)
+	game:GetService('Workspace').Gravity = 0
+	game:GetService('TweenService'):Create(Player.Character.HumanoidRootPart, TweenInfo.new(Time, Enum.EasingStyle.Linear), {CFrame = Position}):Play() wait(Time)
+	game:GetService('Workspace').Gravity = 196.2
+end
+
+function Win()
+	if game:GetService('Workspace').Gravity ~= 0 then
+		Tween(1, game:GetService('Workspace').BoatStages.NormalStages.CaveStage1.DarknessPart.CFrame)
+		Tween(20, game:GetService('Workspace').BoatStages.NormalStages.CaveStage10.DarknessPart.CFrame * CFrame.new(0, 0, 1000))
+		Tween(1, game:GetService('Workspace').BoatStages.NormalStages.TheEnd.GoldenChest.Trigger.CFrame)
+	end
+end
+
+Player.OtherData.End.Changed:Connect(function()
+	if AutoWinToggle == true then
+		if Player.OtherData.End.Value ~= 'EndReached' then
+			Win()
+		end
+	end
+end)
+
+Player.CharacterAdded:Connect(function()
+	if AutoWinToggle == true then
+		if Player:HasAppearanceLoaded() then
+			game:GetService('Workspace').ClaimRiverResultsGold:FireServer()
+		end
+	end
+end)
+end)
+-------------
+Section2:CreateLabel("Note: Rember to use anti-afk.")
+-------------

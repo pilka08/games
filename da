@@ -1,0 +1,92 @@
+local Config = {
+    WindowName = "Omega-Ware V0.1",
+	Color = Color3.fromRGB(46,178,76),
+	Keybind = Enum.KeyCode.RightBracket
+	}
+
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/AlexR32/Roblox/main/BracketV3.lua"))()
+local Window = Library:CreateWindow(Config, game:GetService("CoreGui"))
+
+local Tab3 = Window:CreateTab("Da Hood")
+
+local Section5 = Tab3:CreateSection("Main")
+local Section6 = Tab3:CreateSection("Fun")
+
+-------------//DA HOOD\\-------------4
+-------------
+local Button1 = Section5:CreateButton("Aimlock", function()
+    loadstring(game:HttpGet(('loadstring(game:HttpGet("https://raw.githubusercontent.com/Stefanuk12/ROBLOX/master/Games/Da%20Hood/SilentAimAimLock.lua"))()'),true))()
+end)
+Button1:AddToolTip("Gives u big advantage in aiming.")
+-------------
+local Button1 = Section5:CreateButton("ESP", function()
+    loadstring(game:HttpGet(('https://raw.githubusercontent.com/D34THEV1L/DaHood-Source/main/Line%20Esp'),true))()
+end)
+Button1:AddToolTip("Shows u all players location.")
+-------------
+local Button1 = Section5:CreateButton("Low GFX", function()
+    loadstring(game:HttpGet(('https://raw.githubusercontent.com/D34THEV1L/DaHood-Source/main/LowGfx'),true))()
+end)
+Button1:AddToolTip("Makes u lag less.")
+-------------
+local Button1 = Section5:CreateButton("Teleport Q", function()
+    loadstring(game:HttpGet(('https://raw.githubusercontent.com/D34THEV1L/DaHood-Source/main/Da%20Hood%20TP%20Q'),true))()
+end)
+Button1:AddToolTip("Makes u tp to ur cursor using Q.")
+-------------
+local Button1 = Section5:CreateButton("Auto Cash Stealer", function()
+    loadstring(game:HttpGet(('https://raw.githubusercontent.com/D34THEV1L/DaHood-Source/main/DaHoodMoneyStealer'),true))()
+end)
+Button1:AddToolTip("Steals cash.")
+-------------
+local Button1 = Section5:CreateButton("God Mode", function()
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/D34THEV1L/DaHood-Source/main/Full-GodMode-NoUseless'))()
+end)
+Button1:AddToolTip("No one can kill u.")
+-------------
+local Button1 = Section5:CreateButton("Auto Arrest", function()
+    loadstring(game:HttpGet(("https://raw.githubusercontent.com/Raycodex/Exploiting/main/Roblox/Da%20Hood%20Auto%20Arrest"), true))()
+end)
+Button1:AddToolTip("Arrests everyone around u.")
+-------------
+local Button1 = Section5:CreateButton("Kill All", function()
+    loadstring(game:HttpGet(("https://raw.githubusercontent.com/D34THEV1L/DaHood-Source/main/DaHoodKillAll"), true))()
+end)
+Button1:AddToolTip("Uses low gfx so u wont lag and yes it kills everyone.")
+-------------
+
+
+local Button1 = Section6:CreateButton("Headless", function()
+    loadstring(game:HttpGet(('https://pastebin.com/raw/SzHM9gL2'),true))()
+end)
+Button1:AddToolTip("Makes u headless.")
+-------------
+local Button1 = Section6:CreateButton("Korblox", function()
+    loadstring(game:HttpGet(('https://pastebin.com/raw/1MN83vb8'),true))()
+end)
+Button1:AddToolTip("Gives u korblox.")
+-------------
+local Button1 = Section6:CreateButton("Trash Talk", function()
+    loadstring(game:HttpGet(('https://raw.githubusercontent.com/sxulpxre/Souls-Da-Hood-Scripts/main/Trash%20Talk%20Script'),true))()
+end)
+Button1:AddToolTip("Whenever u kill somebody u will be toxic.")
+-------------
+local Button1 = Section6:CreateButton("Walk On Walls", function()
+    loadstring(game:HttpGet(('https://raw.githubusercontent.com/D34THEV1L/DaHood-Source/main/DaHood%20WalkOnWalls'),true))()
+end)
+Button1:AddToolTip("U can walk on walls now.")
+-------------
+local Slider1 = Section6:CreateSlider("Walkspeed", 16,500,16,true, function(Value)
+   game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = Value
+end)
+Slider1:AddToolTip("Changes ur walkspeed.")
+-------------
+local Slider1 = Section6:CreateSlider("JumpPower", 50,1000,50,true, function(Value)
+   game.Players.LocalPlayer.Character.Humanoid.JumpPower = Value
+end)
+Slider1:AddToolTip("Changes ur jumppower.")
+-------------
+local Slider1 = Section6:CreateSlider("FOV", 100,120,100,true, function(Value)
+   game:GetService'Workspace'.Camera.FieldOfView  = Value
+end)
+Slider1:AddToolTip("Changes ur field of view.")
